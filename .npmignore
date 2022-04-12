@@ -1,0 +1,12 @@
+src
+*.tgz
+/test
+/coverage
+.babelrc
+.editorconfig
+.eslintrc
+.gitignore
+.github
+.prettierrc
+.travis.yml
+.nyc_output
