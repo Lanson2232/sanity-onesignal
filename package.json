@@ -1,0 +1,59 @@
+{
+  "name": "sanity-plugin-onesignal",
+  "version": "1.0.0",
+  "description": ".",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sanipack build",
+    "watch": "sanipack build --watch",
+    "prepublishOnly": "sanipack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lanson2232/sanity-onesignal.git"
+  },
+  "keywords": [
+    "sanity",
+    "sanity plugin",
+    "onesignal",
+    "push notifications",
+    "notification",
+    "web notification"
+  ],
+  "author": "Bünyamin Öztürk <lanson2332@hotmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-sanity": "5.1.0",
+    "eslint-plugin-react": "^7.23.2",
+    "prettier": "^2.3.0",
+    "sanipack": "^2.0.1"
+  },
+  "peerDependencies": {
+    "@sanity/base": "^2.21.5",
+    "react": "^17.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "sanipack/babel/eslint-parser",
+    "extends": [
+      "sanity",
+      "sanity/react",
+      "prettier",
+      "prettier/react"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/Lanson2232/sanity-onesignal/issues"
+  },
+  "homepage": "https://github.com/Lanson2232/sanity-onesignal#readme",
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
