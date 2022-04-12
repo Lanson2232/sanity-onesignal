@@ -5,7 +5,7 @@ OneSignal Push Notification support for [Sanity.io](https://sanity.io?utm_source
 # Installation
 
 ```
-npm install sanity-plugin-onesignal
+sanity install onesignal
 ```
 
 <br>
@@ -27,5 +27,15 @@ Use it in your schema types:
   ]
 }
 ```
+# Configuration
+To use it you need to define your API Key and APP ID
 
+```js
+// .../studio/config/onesignal.json
+{
+  "onesignalApiKey": "exampleKey",
+  "onesignalAppId": "exampleID"
+}
+
+```
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Card, TextArea, TextInput, Text, Button, Box} from '@sanity/ui'
 import axios from 'axios'
-import config from 'config:sanity-onesignal'
+import config from 'config:onesignal'
 
 export default React.forwardRef(function oneSignal(props, ref) {
   const [valueArea, setValueArea] = React.useState('')
