@@ -5,7 +5,7 @@ OneSignal Push Notification support for [Sanity.io](https://sanity.io?utm_source
 # Installation
 
 ```
-sanity install sanity-plugin-onesignal
+npm install sanity-plugin-onesignal
 ```
 
 <br>
