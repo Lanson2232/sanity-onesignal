@@ -1,12 +1,33 @@
 import * as React from 'react'
 import {Card, TextArea, TextInput, Text, Button, Box} from '@sanity/ui'
 import axios from 'axios'
-import config from 'config:onesignal'
+import {useSecrets, SettingsView} from 'sanity-secrets'
+
+const namespace = 'onesignal'
+
+const pluginConfigKeys = [
+  {
+    key: 'apiKey',
+    title: 'OneSignal Api Key',
+  },
+  {
+    key: 'appId',
+    title: 'OneSignal App ID',
+  },
+]
 
 export default React.forwardRef(function oneSignal(props, ref) {
   const [valueArea, setValueArea] = React.useState('')
   const [valueTitle, setValueTitle] = React.useState('')
   const [valueURL, setValueURL] = React.useState('')
+  const {secrets} = useSecrets(namespace)
+  const [showSettings, setShowSettings] = React.useState(false)
+
+  React.useEffect(() => {
+    if (!secrets) {
+      setShowSettings(true)
+    }
+  }, [secrets])
 
   async function sendNotification(message) {
     let res = await axios({
@@ -14,9 +35,9 @@ export default React.forwardRef(function oneSignal(props, ref) {
       url: 'https://onesignal.com/api/v1/notifications',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization: `Basic ${config.onesignalApiKey}`,
+        Authorization: `Basic ${secrets.apiKey}`,
       },
-      data: {app_id: config.onesignalAppId, ...message},
+      data: {app_id: secrets.appId, ...message},
     })
 
     return res.data
@@ -64,6 +85,15 @@ export default React.forwardRef(function oneSignal(props, ref) {
             })
           }
         />
+        {showSettings && (
+          <SettingsView
+            namespace={namespace}
+            keys={pluginConfigKeys}
+            onClose={() => {
+              setShowSettings(false)
+            }}
+          />
+        )}
       </Box>
     </Card>
   )
